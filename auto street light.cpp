@@ -19,9 +19,6 @@ void loop()
   Serial.print("LDR val= ");
   Serial.println(ldrval);
   delay(dt);
-
- 
-    
   
   if(ldrval>250)
   {
@@ -34,8 +31,7 @@ void loop()
     digitalWrite(greenled,LOW);
     digitalWrite(redled,HIGH);
     digitalWrite(relaypin,HIGH);
-    Serial.println("              relay on           ");
+    Serial.println("relay on");
   }
-  
-  
+
 }
