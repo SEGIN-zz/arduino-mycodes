@@ -1,22 +1,23 @@
-#include<Arduino.h>
+# include<Arduino.h>
 
-int potpin=A0;
-int motorpin=3;
-int potval;
-int dt=100;
-int v0;
+const uint8_t trigpin = 12;
+const uint8_t echopin = 13;
+long pingTravelTime;
 
-void setup()
+void setup ()
 {
   Serial.begin(9600);
-  pinMode(potpin,INPUT);
-  pinMode(motorpin,OUTPUT);
+  pinMode(trigpin,OUTPUT);
+  pinMode(echopin,INPUT);
 }
-
-void loop()
+void loop ()
 {
-  potval=analogRead(potpin);
-  v0=(255./1023.)*potval;
-  analogWrite(motorpin,v0);
-  Serial.println(v0);
+  digitalWrite(trigpin,LOW);
+  delayMicroseconds(10);
+  digitalWrite(trigpin,HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigpin,LOW);
+  pingTravelTime = pulseIn(echopin,HIGH);
+  delay(50);
+  Serial.println(pingTravelTime);
 }
