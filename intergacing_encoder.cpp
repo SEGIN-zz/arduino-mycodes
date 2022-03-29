@@ -1,26 +1,44 @@
-#include <Arduino.h>
+# include <Arduino.h>
 
 int clk = 2;
-int clkVal;
 int dt = 3;
-int dtVal;
+
+int counter = 0;
+int curent_State_CLK;
+int previous_state_CLK;
+String encdir;
 
 void setup()
 {
-  Serial.begin(9600); // setting up SerialMonitor with a baudrate of 9600;
+  Serial.begin(9600);
   pinMode(clk,INPUT);
   pinMode(dt,INPUT);
 
+  previous_state_CLK = digitalRead(clk);
 }
 
 void loop()
 {
-  clkVal = digitalRead(clk); // reading the value of the encoder output pin clk,dt;
-  dtVal = digitalRead(dt);
   
-  Serial.print("clk = ");
-  Serial.print(clkVal);
-  Serial.print("  Dt = ");
-  Serial.println(dtVal);
+  curent_State_CLK = digitalRead(clk);
+  
+  if (curent_State_CLK != previous_state_CLK)
+  {
+    if (digitalRead(dt) != curent_State_CLK)
+    {
+      counter--;
+      encdir = "ccw";
+    }
+    else
+    {
+      counter++;
+      encdir = "cw";
+    }
+    Serial.print("Direction = ");
+    Serial.print(encdir);
+    Serial.print("  Value = ");
+    Serial.println(counter);
+
+  }
 
 }
