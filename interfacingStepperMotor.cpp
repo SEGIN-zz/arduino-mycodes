@@ -4,7 +4,7 @@
 int spr = 2048;
 int mot_speed = 10;
 int dt = 500;
-Stepper Stepper_zero (spr,8,9,10,11);
+Stepper Stepper_zero (spr,8,10,9,11);
 
 void setup()
 {
