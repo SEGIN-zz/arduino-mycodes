@@ -1,6 +1,6 @@
 # include <Arduino.h>
 # include <LiquidCrystal.h>
-# include <Wire.h>
+
 
 const uint8_t rs = 8;
 const uint8_t en = 9;
