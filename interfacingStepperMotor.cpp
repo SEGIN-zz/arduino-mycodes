@@ -1,3 +1,17 @@
+/*
+* pin connections
+ 
+driver ============= Arduino uno
+    IN 1 ========>>  pin 8
+    IN 2 ========>>  pin 9
+    IN 3 ========>>  pin 10
+    IN 4 ========>>  pin 11
+  
+  plz use this config if using this code
+  
+*/
+
+
 # include <Arduino.h>
 # include <Stepper.h>
 
