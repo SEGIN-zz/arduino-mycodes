@@ -20,13 +20,13 @@ void loop()
   Serial.println(ldrval);
   delay(dt);
   
-  if(ldrval>250)
+  if(ldrval < 250)
   {
     digitalWrite(greenled,HIGH);
     digitalWrite(redled,LOW);
     digitalWrite(relaypin,LOW);
   }
-  if(ldrval>1000)
+  if(ldrval > 1000)
   {
     digitalWrite(greenled,LOW);
     digitalWrite(redled,HIGH);
