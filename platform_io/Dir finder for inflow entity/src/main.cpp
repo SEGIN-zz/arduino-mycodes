@@ -13,12 +13,11 @@ a rotary encoder this way it is cheap, and effective;
 using arduino uno;
 using platform.io 
 
-
 */
+
  # include <Arduino.h>        
 // this  is for including arduino frameWork in platform.io
 
-// using oop
 class Detector                 
 {
 // pair of a led and  ldr together form this object called Detector
@@ -147,7 +146,7 @@ if this orentaion is chagned you will need to change the direction in this also;
 
     Serial.println("Backward");
     // printing the direction
-    
+
   }
 /*
 this will be working in a infinit loop for the ball detecion
