@@ -12,7 +12,7 @@ Ans :
   using arduino uno 
   using platform.io
 
-  gitHub link -> 
+  gitHub link -> https://github.com/segin-GH/Embedded-codes/blob/main/arduino_codes/millis_delay/src/main.cpp
 
 
 thinkercad sim link ->  https://www.tinkercad.com/things/9IwXHECjs7R?sharecode=LW6NKhy1WuINhVloYchyXTPxl5EDA9dA6u6QEysj9Ww
