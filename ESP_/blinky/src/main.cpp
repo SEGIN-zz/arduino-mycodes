@@ -15,12 +15,13 @@ Questioin from reactLabs :
 Answer : WOKWI link -> https://wokwi.com/projects/339506741430452818
 
 code :
-  using platform.io in vscode
-  posted the code link in github ->
+  using platform.io, in vscode
+  posted the code in github -> https://github.com/segin-GH/Embedded-codes/blob/main/ESP_/blinky/src/main.cpp
 
 */
+// including all headers
+#include <Arduino.h> 
 
-#include <Arduino.h>
 
 const int ledOne = 18;
 const int ledTwo = 5;
@@ -93,3 +94,4 @@ void ledlightingSequence()
 
   
 }
+
