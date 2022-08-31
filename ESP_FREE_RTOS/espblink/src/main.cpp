@@ -2,7 +2,6 @@
 
 // making sure esp32 ony uses 1 core why? ,bcz we can
 #if !CONFIG_FREERTOS_UNICORE
-
 #define TASK_CPU APP_CPU_NUM // Core 1
 #else
 #define TASK_CPU PRO_CPU_NUM // Core 0
