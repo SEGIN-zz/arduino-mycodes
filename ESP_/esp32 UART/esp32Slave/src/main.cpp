@@ -2,7 +2,7 @@
 
 #include <HardwareSerial.h>
 
-HardwareSerial SerialPort(2); // use UART2
+HardwareSerial SerialPort(1); // use UART2
 
 
 char number  = ' ';
