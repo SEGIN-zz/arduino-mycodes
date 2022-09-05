@@ -1,18 +1,7 @@
-
-
-/* The ESP32 has four SPi buses, however as of right now only two of
- * them are available to use, HSPI and VSPI. Simply using the SPI API 
- * as illustrated in Arduino examples will use VSPI, leaving HSPI unused.
- * 
- * However if we simply intialise two instance of the SPI class for both
- * of these buses both can be used. However when just using these the Arduino
- * way only will actually be outputting at a time.
- * 
- * Logic analyser capture is in the same folder as this example as
- * "multiple_bus_output.png"
- * 
- * created 30/04/2018 by Alistair Symonds
+/* 
  */
+
+
 #include <SPI.h>
 #include <Arduino.h>
 
@@ -44,6 +33,7 @@
 #define VSPI FSPI
 #endif
 
+void sndString(SPIClass *spi, char data[], int dataSize);
 void spiCommand(SPIClass *spi, byte data);
 
 static const int spiClk = 1000000; // 1 MHz
@@ -82,14 +72,27 @@ void setup() {
   pinMode(vspi->pinSS(), OUTPUT); //VSPI SS
   // pinMode(hspi->pinSS(), OUTPUT); //HSPI SS
 
+/* 
+ array [] = {"NAM":"segin.pdb","ssid":"HSPLWIFI","pass":"HACK@LAB","ip":246,"HED":4,"HAD":6,
+"MED":4,"MAD":6,"HEL":1,"HDS":3,"HL1":3669736379,"HL2":0,"HL3":0,"KEY":1,"AC":2,
+"SB":2,"ALR":1,"EMR":3,"HMI":1,"SLK":10000,"OTA":0,"BRK":5000,"BYP":5000,"DBG":t
+rue}     */
+
+  char data [] = {'H','I','!'};
+  for(int i = 0; i < 3; i++)
+  {
+    sndString(vspi,data,3);
+    delay(1);
+  }
+
 }
 
 // the loop function runs over and over again until power down or reset
 void loop() {
   //use the SPI buses
-  spiCommand(vspi, 0x01); // junk data to illustrate usage
-  // spiCommand(hspi, 0b11001100);
-  delay(100);
+  // spiCommand(vspi, 0x01); // junk data to illustrate usage
+  // // spiCommand(hspi, 0b11001100);
+  // delay(100);
 }
 
 void spiCommand(SPIClass *spi, byte data) {
@@ -99,4 +102,17 @@ void spiCommand(SPIClass *spi, byte data) {
   spi->transfer(data);
   digitalWrite(spi->pinSS(), HIGH); //pull ss high to signify end of data transfer
   spi->endTransaction();
+}
+
+void sndString(SPIClass *spi, char data[], int dataSize)
+{
+  spi->beginTransaction(SPISettings(spiClk, MSBFIRST, SPI_MODE0));
+  digitalWrite(spi -> pinSS(),LOW);
+  for (int i = 0; i < dataSize; i++)
+  {
+    spi -> transfer(data[i]); 
+  }
+  digitalWrite(spi -> pinSS(),HIGH);
+  spi->endTransaction();
+  
 }

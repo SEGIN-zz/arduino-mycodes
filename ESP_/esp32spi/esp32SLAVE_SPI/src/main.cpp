@@ -1,5 +1,5 @@
 #include <ESP32SPISlave.h>
-
+#include <Arduino.h>
 ESP32SPISlave slave;
 
 static constexpr uint32_t BUFFER_SIZE {32};
