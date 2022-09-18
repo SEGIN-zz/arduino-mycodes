@@ -18,7 +18,7 @@ void readCerial (void * parm)
 
   uint8_t idx = 0;
   
-  memset(buf, 0, buf_len);
+  memset(buf, 0, buf_len); // clean the buffer
   while(true)
   {
     if (Serial.available() > 0)
