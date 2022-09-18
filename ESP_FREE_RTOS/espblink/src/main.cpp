@@ -13,12 +13,11 @@ void toggleLed (void *parm)   // void *parm should allways be passed
 {
   while(true)
   {
-
-  digitalWrite(led_pin,HIGH);
-  vTaskDelay(300 / portTICK_PERIOD_MS);
-  digitalWrite(led_pin,LOW);
-  vTaskDelay(300 / portTICK_PERIOD_MS); // portTICK_PERIOD_MS = 1 
-  
+    digitalWrite(led_pin,HIGH);
+    vTaskDelay(300 / portTICK_PERIOD_MS);
+    digitalWrite(led_pin,LOW);
+    vTaskDelay(300 / portTICK_PERIOD_MS); // portTICK_PERIOD_MS = 1 
+    
 /*
   vtaskDelay() -> tells the scheduler to run other tasks
   untill the specified time is over.
@@ -44,6 +43,7 @@ void toggleLedDif(void *parm)
     vTaskDelay(200 / portTICK_PERIOD_MS);
     digitalWrite(2,LOW);
     vTaskDelay(200 / portTICK_PERIOD_MS);
+    Serial.println("PDB WORKING");
 
   }
 }
@@ -79,3 +79,4 @@ void loop()
 {
   // lol
 }
+

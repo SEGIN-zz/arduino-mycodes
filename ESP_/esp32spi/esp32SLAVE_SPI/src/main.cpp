@@ -33,7 +33,7 @@ void loop() {
     while (slave.available()) {
         // show received data
         for (size_t i = 0; i < slave.size(); ++i) {
-            printf("%d ", spi_slave_rx_buf[i]);
+            printf("%i", spi_slave_rx_buf[i]);
         }
         printf("\n");
 

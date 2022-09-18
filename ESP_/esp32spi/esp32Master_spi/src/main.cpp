@@ -78,11 +78,11 @@ void setup() {
 "SB":2,"ALR":1,"EMR":3,"HMI":1,"SLK":10000,"OTA":0,"BRK":5000,"BYP":5000,"DBG":t
 rue}     */
 
-  char data [] = {'H','I','!'};
-  for(int i = 0; i < 3; i++)
+  char data [] = {"."};
+  for(int i = 0; i < 10; i++)
   {
-    sndString(vspi,data,3);
-    delay(1);
+    sndString(vspi,data,1);
+    delay(10);
   }
 
 }
