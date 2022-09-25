@@ -21,7 +21,6 @@ void mundanetask(void *parm)
   }
 
 }
-
 void setup()
 {
   Serial.begin(115200);
@@ -36,9 +35,6 @@ void setup()
     APP_CPU_NUM
   );
 //  vTaskDelete(NULL);
-
-
-
 }
 
 
