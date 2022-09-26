@@ -18,6 +18,14 @@ void mundanetask(void *parm)
       b[i] = a + 1;
     }
     Serial.println(b[0]);
+    Serial.print("High water mark(words) : ");
+    Serial.println(uxTaskGetStackHighWaterMark(NULL));
+
+    Serial.print("Heap before maloc (bytes) : ");
+    Serial.println(xPortGetFreeHeapSize());
+    int *ptr = (int*)pvPortMalloc(1024 * sizeof(int));
+    Serial.print("Heap before maloc (bytes) : ");
+    Serial.println(xPortGetFreeHeapSize()); 
   }
 
 }
