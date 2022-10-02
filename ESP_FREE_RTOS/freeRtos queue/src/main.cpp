@@ -6,7 +6,7 @@
 #define TASK_CPU PRO_CPU_NUM
 #endif
 
-static const uint8_t queue_len = 5;
+static const uint8_t queue_len = 3;
 static QueueHandle_t msg_queu;
 
 
@@ -20,7 +20,7 @@ void printMsg(void *parm)
     {
       Serial.println(item); 
     }
-    vTaskDelay(1000/portTICK_PERIOD_MS);
+    vTaskDelay(500/portTICK_PERIOD_MS);
 
   }
 }
@@ -49,12 +49,10 @@ void loop()
 {
   static int num = 0;
 
-  if (xQueueSend(msg_queu,(void*) &num,10) != pdTRUE)
+  if (xQueueSend(msg_queu,(void*) &num,5) != pdTRUE)
   {
     Serial.println("Queue full");
   }
   num++;
-  vTaskDelay(500/portTICK_PERIOD_MS);
-
-
+  vTaskDelay(100/portTICK_PERIOD_MS);
 }
