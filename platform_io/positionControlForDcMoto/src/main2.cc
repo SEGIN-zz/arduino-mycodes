@@ -42,7 +42,7 @@ void onInterrupt1()
 {
     int state = digitalRead(2);
 
-    if(digitalRead(3) == ~state)
+    if(digitalRead(3) == !state)
         ++encoderCount;
 
     int state = digitalRead(2);
